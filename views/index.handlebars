@@ -1,0 +1,69 @@
+<h1 id="logo">Eat-em-Burger</h1>
+
+<div class="container">
+  <div class="row">
+    <h3>Available Burgers</h3>
+    <div class="col-md-4  burger-name">
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+
+    <div class="col-md-3">
+
+      <img src="assets/image/Burger.jpg" class="burger-img img-responsive center-block" alt="burger image">
+    </div>
+
+
+    <div class="col-md-5 eaten-burger">
+      <h3>These are Gone - But can Reorder!</h3>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-eaten-block devoured=false}}
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+
+
+</div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+         <button type="submit" class="btn btn-primary mt-3" id="btn-submit">Add-a-Burger</button>
+        <textarea name="burger" class="new-burger"></textarea>
+
+       
+      </form>
+
+    </div>
+  </div>
+
+  </div>
+
+
+    {{!-- <h2>Add a Cat</h2>
+    <form class="create-form">
+
+      <div class="form-group">
+        <label for="ca">Cat Name:</label>
+        <input type="text" id="ca" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="sleepy">Sleepy?</label><br>
+        <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
+        <input type="radio" name="sleepy" value="0"> Awake
+      </div>
+
+      <button type="submit">Add Cat</button>
+    </form> --}}
