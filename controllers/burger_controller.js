@@ -1,5 +1,4 @@
 var express = require("express");
-
 var router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
@@ -11,7 +10,7 @@ router.get("/", function(req, res) {
     var hbsObject = {
       burgers: data
     };
-    console.log(hbsObject);
+    //console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
@@ -25,19 +24,20 @@ router.post("/", function(req, res) {
   //   // Send back the ID of the new quote
   //   res.json({ id: result.insertId });
   // });
+
+  console.log("route post")
   burger.insertOne("burger_name", req.body.burger_name,
     function(data) {
       res.status(200).send();
     })
 });
 
-router.put("/api/burgers/:id", function(req, res) {
+router.put("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-
   console.log("condition", condition);
 
   burger.updateOne({
-    sleepy: req.body.sleepy
+    id: req.params
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404

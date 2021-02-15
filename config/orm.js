@@ -39,6 +39,9 @@ function objToSql(ob) {
   return arr.toString();
 }
 
+
+
+
 // Object for all our SQL statement functions.
 var orm = {
   selectAll: function(tableInput, cb) {
@@ -47,6 +50,7 @@ var orm = {
       if (err) {
         throw err;
       }
+      console.log(queryString);
       cb(result);
     });
   },
@@ -57,9 +61,9 @@ var orm = {
     queryString += " (";
     queryString += cols.toString();
     queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+    queryString += "VALUES ('";
+    queryString += vals;
+    queryString += "') ";
 
     console.log(queryString);
 
@@ -71,9 +75,10 @@ var orm = {
       cb(result);
     });
   },
+
   // An example of objColVals would be {name: panther, sleepy: true}
   updateOne: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
+    var queryString = "UPDATE burgers";
 
     queryString += " SET ";
     queryString += objToSql(objColVals);

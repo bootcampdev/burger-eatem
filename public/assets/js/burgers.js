@@ -2,19 +2,17 @@
 $(function () {
   // $(".change-sleep").on("click", function (event) {
   //   var id = $(this).data("id");
-    //var newBurger = $(this).data("newsleep");
-    const newBurger = $("#new-burger").val();
-
-    // var newSleepState = {
-    //   sleepy: newSleep
-    // };
+   
     $("form").on("submit", function (event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
 
-      // Send the PUT request.
+      const newBurger = $("#new-burger").val();
+      console.log("new burger", newBurger);
+
+      // Send the POST request.
       $.ajax("/", {
-        type: "PUT",
+        type: "POST",
         data: { burger_name: newBurger }
       }).then(
         function () {
@@ -27,6 +25,28 @@ $(function () {
     });
 
   })
+
+
+
+    $("#burger-ready").on("click", function (event) {
+      var id = $(this).data("id");
+
+    // Send the PUT request.
+
+    $.ajax("/" + id, {
+      type: "PUT"
+    }).then(
+      function () {
+        console.log("burger updated", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+
+
 
 //   $(".create-form").on("submit", function (event) {
 //     // Make sure to preventDefault on a submit event.
