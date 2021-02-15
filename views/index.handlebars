@@ -1,9 +1,11 @@
-<h1 id="logo">Eat-em-Burger</h1>
 
 <div class="container">
+  <h1 id="logo">Eat-em-Burger</h1>
+
   <div class="row">
-    <h3>Available Burgers</h3>
+   
     <div class="col-md-4  burger-name">
+       <h3>Available Burgers</h3>
       <ul>
         {{#each burgers}}
         {{#unless devoured}}
@@ -13,12 +15,9 @@
       </ul>
     </div>
 
-
     <div class="col-md-3">
-
-      <img src="assets/image/Burger.jpg" class="burger-img img-responsive center-block" alt="burger image">
+      <img src="assets/image/Burger.jpg" class="burger-img" alt="burger image">
     </div>
-
 
     <div class="col-md-5 eaten-burger">
       <h3>These are Gone - But can Reorder!</h3>

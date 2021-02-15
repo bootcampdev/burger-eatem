@@ -6,17 +6,10 @@ var connection = require("../config/connection.js");
 // In order to write the query, we need 3 question marks.
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
-function printQuestionMarks(num) {
-  var arr = [];
-
-  for (var i = 0; i < num; i++) {
-    arr.push("?");
-  }
-
-  return arr.toString();
-}
 
 // Helper function to convert object key/value pairs to SQL syntax
+//
+
 function objToSql(ob) {
   var arr = [];
 
@@ -50,7 +43,7 @@ var orm = {
       if (err) {
         throw err;
       }
-      console.log(queryString);
+      //console.log(queryString);
       cb(result);
     });
   },
@@ -65,7 +58,7 @@ var orm = {
     queryString += vals;
     queryString += "') ";
 
-    console.log(queryString);
+    //console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -78,10 +71,7 @@ var orm = {
 
   // An example of objColVals would be {name: panther, sleepy: true}
   updateOne: function(objColVals, condition, cb) {
-    
-    console.log("condition is ", condition);
-    console.log("obj vals ", objColVals);
-    
+   
     var queryString = "UPDATE burgers";
 
     queryString += " SET ";
@@ -90,7 +80,7 @@ var orm = {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString);
+    //console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
