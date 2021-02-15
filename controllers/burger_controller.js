@@ -16,14 +16,6 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-  // burger.insertOne([
-  //   "name", "sleepy"
-  // ], [
-  //   req.body.name, req.body.sleepy
-  // ], function(result) {
-  //   // Send back the ID of the new quote
-  //   res.json({ id: result.insertId });
-  // });
 
   console.log("route post")
   burger.insertOne("burger_name", req.body.burger_name,
@@ -35,7 +27,7 @@ router.post("/", function(req, res) {
 router.put("/:id", function(req, res) {
   
   var condition = "id = " + req.params.id;
-  var hasEaten = req.body.devoured
+
 
   console.log("route has eaten ", req.body);
 
@@ -48,6 +40,7 @@ router.put("/:id", function(req, res) {
     }
   });
 });
+
 
 
 // Export routes for server.js to use.
