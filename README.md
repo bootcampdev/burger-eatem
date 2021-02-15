@@ -22,9 +22,6 @@
 
 Create an application that tracks burgers orders and eaten.  The goal of this application is to demonstrate the MVC design using Node and MySQL to query and route the data in the app.  This assignment also use Express and Handlebars.
 
- 
-
-
 
 ## Table of Contents
 
@@ -49,11 +46,11 @@ $ node install express-handlebars
 
  * The `connection.js` file inside `config` directory.
 
-   * Inside the `connection.js` file, is the code to connect Node to MySQL.
+   * Inside the `connection.js` file, is the code to connect Node to MySQL or to Heroku if running JAWSDB.
 
    * Export the connection.
 
-* The `orm.js` file, has the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
+* The `orm.js` file, has the methods that will execute the necessary MySQL commands in the controllers. These are the methods thart are included to retrieve and store data in your database.
 
  * Import (require) `connection.js` into `orm.js`
 
@@ -71,7 +68,7 @@ Deployment is using Heroku for our public server
 
 https://glacial-falls-90271.herokuapp.com/
 ```
-[Burger-Eatem](https://glacial-falls-90271.herokuapp.com/)
+
 
 #
 
@@ -87,7 +84,8 @@ https://glacial-falls-90271.herokuapp.com/
 
 * The URL of the deployed application. This should be the link to the url provided by Heroku. Be sure not to submit a link to the Heroku dashboard.
 
-* The URL of the GitHub repository
+[Burger-Eatem](https://glacial-falls-90271.herokuapp.com/)
+
 
 
 ## Application Repository
@@ -103,4 +101,4 @@ The Mozilla Public License is a free and open-source software license developed 
 ---
 ### Last update
 
-Sun Jan 31 2021 16:58:01 GMT-0600 (Central Standard Time)
+Sun Feb 14 2021 16:58:01 GMT-0600 (Central Standard Time)
